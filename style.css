@@ -1,0 +1,136 @@
+header h1 {
+    font-size: var(--h3);
+    }
+    
+    header h1 a {
+    color: var(--white);
+    text-decoration: none;
+    }
+    
+    nav a {
+    text-decoration: none;
+    color: var(--white);
+    }
+    
+    nav .button:hover {
+        color: var(--black);
+    }
+    @media (max-width: 830px ){
+/* the styles in here will apply UP TO a screen size of 830px */
+        header {
+            /* when it wraps, it'll be centered on the screen */
+            justify-content: center;
+            
+        }
+        header h1 {
+            /* flex-basis:  */
+            flex-basis: 100%;
+            text-align: center;
+            margin-bottom: 2rem;
+            }
+    }
+    @media (max-width: 640px){
+        header {
+            /* when navbar becomes a hamburger button, we want the header on the left and hamburger icon on the right (or something) */
+            justify-content: space-between;
+        }
+        header h1 {
+            flex-basis: auto;
+        }
+        header button {
+            display: block;
+            font-size: 3rem;
+            line-height: 1;
+            border: 0;
+            background-color: transparent;
+            color: var(--white);
+        }
+        header button:hover {
+            color: var(--green);
+        }
+        /* after the button, we're going to put in this (pseudo-element */
+        header button::after {
+            /* unicode for hamburger menu! */
+            content: "\2630";
+        }
+        nav {
+            position: fixed;
+            top: 0;
+            /* this will shove navbar off-screen! */
+            right: 200%;
+             /* as wide as the window */
+            width: 100vw;
+            height: 100vh;
+            background: #fff;
+            padding-top: 20%;
+            /* animation to open hamburger button menu! */
+            transition: right 0s 0.5s opacity 0.5s;
+        }
+        /* anything separated by commas are separate selectors */
+        button:focus + nav,
+        button:focus-with + nav{
+            right: 0;
+            opacity: 1;
+            transition: right 0s, opacity 0.5s;
+        }
+        nav ul {
+            display: block;
+            text-align: center;
+            position: relative;
+            top: -50vh;
+            transition: top 0.5s;
+        }
+        button:focus + nav ul,
+        button:focus-within + nav ul {
+            top: 0;
+        }
+        nav a:any-link:not(.button) {
+            display: block;
+            padding: 1.5rem;
+            color: var(--green);
+        }
+        nav .button {
+            margin-top: 1.5rem;
+            display: inline-block;
+            color: var(--black);
+        }
+        nav ul::after {
+            content: "\2716";
+            var(--green);
+            display: block;
+            position: absolute;
+            top: 0.125rem;
+            right: 0.5rem;
+            font-size: 3rem;
+            line-height: 1;
+        }
+        nav a svg {
+            fill: var(--green);
+        }
+        nav a:hover,
+        nav a svg:hover {
+            color: var(--tan);
+            fill: var(--tan);
+        }
+    }
+
+    @layer footer {
+        footer {
+            text-align: center;
+            padding: 6rem 0;
+            background: var(--black) url("https:assets.codepen.io/296057/fem-stars.jpg") no-repeat center center;
+            background-size: cover;
+        }
+        footer ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 
+        }
+        footer svg {
+            width: 40px;
+            fill: var(--white);
+        }
+        footer a:hover svg {
+            
+        }
+    }
